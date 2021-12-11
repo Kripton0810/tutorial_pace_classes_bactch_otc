@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sreesubh | Admin</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    header{
+      padding: 10px 20px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    header nav{
+      display: flex;
+      justify-content: space-between;
+      width: 50%;
+    }
+    header nav a{
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-family: 'Noto Sans', sans-serif;
+      text-transform: capitalize;
+      font-weight: 500;
+      color: rgb(16, 24, 16);
+    }
+    .active{
+        color: red;
+    }
+    main
+    {
+        background-color: aqua;
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+    }
+    left
+    {
+        width: 100%;
+        height: 20%;
+    }
+    right
+    {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        /* background-color: blue; */
+    }
+    
+    
+    table th
+    {
+        margin: auto;
+        border: 2px solid black;
+    }
+    table tr th,td{
+     
+        font-family: 'Noto Sans', sans-serif;
+      text-transform: capitalize;
+    }
+
+    
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="./images/logo.png">
+    <nav>
+      <div class="menu"><a href="#">Employee Admin</a></div>
+      <div class="menu"><a href="#" class="active">Attandance</a></div>
+      <div class="menu"><a href="#">fuel consumption</a></div>
+      <div class="menu"><a href="#">Leave Notice</a></div>
+    </nav>
+
+  </header>
+  <main>
+      <left>
+          <div class="form-d">
+              <div class="data-list">
+                <label for="emp_name">Select Employee</label>
+                <input list="emp_name_list" name="emp_name" id="emp_name">
+                
+                <datalist id="emp_name_list">
+                  <option value="Edge">
+                  <option value="Firefox">
+                  <option value="Chrome">
+                  <option value="Opera">
+                  <option value="Safari">
+                </datalist>
+
+              </div>
+              <div class="dates">
+                  <label for="start_date">Start date</label>
+                  <input type="date" name="start_date" id="start_date">
+                  <label for="end_date">End date</label>
+                  <input type="date" name="end_date" id="end_date">
+              </div>
+              <div class="sub">
+                  <button id="submit" onclick="submit()">Submit</button>
+              </div>
+            
+          </div>
+      </left>
+      <right>
+          <table >
+            <tr><th>Date</th><th>Attandance</th><th>Login Time</th><th>Login Location</th><th>Logout Time</th><th>Logout Location</th></tr>
+            <tr><th>Date</th><th>Attandance</th><th>Login Time</th><th>Login Location</th><th>Logout Time</th><th>Logout Location</th></tr>
+            <tr><th>Date</th><th>Attandance</th><th>Login Time</th><th>Login Location</th><th>Logout Time</th><th>Logout Location</th></tr>
+            <tr><th>Date</th><th>Attandance</th><th>Login Time</th><th>Login Location</th><th>Logout Time</th><th>Logout Location</th></tr>
+            <tr><th>Date</th><th>Attandance</th><th>Login Time</th><th>Login Location</th><th>Logout Time</th><th>Logout Location</th></tr>
+            <tr><th>Date</th><th>Attandance</th><th>Login Time</th><th>Login Location</th><th>Logout Time</th><th>Logout Location</th></tr>
+            <tr><th>Date</th><th>Attandance</th><th>Login Time</th><th>Login Location</th><th>Logout Time</th><th>Logout Location</th></tr>
+            <tr><th>Date</th><th>Attandance</th><th>Login Time</th><th>Login Location</th><th>Logout Time</th><th>Logout Location</th></tr>
+            <tr><th>Date</th><th>Attandance</th><th>Login Time</th><th>Login Location</th><th>Logout Time</th><th>Logout Location</th></tr>
+            <tr><th>Date</th><th>Attandance</th><th>Login Time</th><th>Login Location</th><th>Logout Time</th><th>Logout Location</th></tr>
+            <tr><th>Date</th><th>Attandance</th><th>Login Time</th><th>Login Location</th><th>Logout Time</th><th>Logout Location</th></tr>
+            <tr><th>Date</th><th>Attandance</th><th>Login Time</th><th>Login Location</th><th>Logout Time</th><th>Logout Location</th></tr>
+         
+        </table>
+      </right>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script>
+      function submit()
+      {
+          var start_date = document.getElementById("start_date").value;
+          var end_date = document.getElementById("end_date").value;
+          var emp_name = document.getElementById("emp_name").value;
+          $.ajax({
+              type:"get",
+              url:"http://bookbin.tech/sreesubh/view_holiday.php",
+              success:function(data)
+              {
+                  console.log(data);
+              }
+          }).done(function()
+          {
+
+          })
+          
+      }
+  </script>
+</body>
+</html>
